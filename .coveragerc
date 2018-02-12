@@ -17,6 +17,5 @@ omit =
     setup.py
     websauna/compat/*
     websauna/system/http/*
-    websauna/tests/*
-    websauna/utils/orderedset.py
+    websauna/utils/tests/*
 
