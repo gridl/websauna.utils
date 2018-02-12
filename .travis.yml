@@ -51,7 +51,7 @@ script:
   - export COVERAGE_PROCESS_START=$PWD/.coveragerc
   # This env variable is passed to scaffold tests that test the tests themselves
   - export TRAVIS=true
-  - tox -- --ini=websauna/conf/travis.ini --debug
+  - tox -- --ini=websauna/utils/conf/travis.ini --debug
 
 after_success:
   # Update coverage information in codecov.io.
