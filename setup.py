@@ -2,7 +2,6 @@
 import sys
 from codecs import open
 from os import path
-from pathlib import Path
 
 from setuptools import find_packages
 from setuptools import setup
@@ -10,10 +9,10 @@ from setuptools import setup
 
 assert sys.version_info >= (3, 5, 2), "websauna.utils needs Python 3.5.2 or newer, you have {version}".format(version=sys.version_info)
 
-here = Path(path.abspath(path.dirname(__file__)))
+here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the relevant file
-with open(here / 'README.rst', encoding='utf-8') as f:
+with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 
