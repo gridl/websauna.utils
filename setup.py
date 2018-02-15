@@ -91,6 +91,9 @@ setup(
     # "scripts" keyword. Entry points provide cross-platform support and allow
     # pip to create the appropriate form of executable for the target platform.
     entry_points={
+        'plaster.loader_factory': [
+           'ws=websauna.utils.config.loader:Loader',
+        ],
         'plaster.wsgi_loader_factory': [
             'ws=websauna.utils.config.loader:Loader',
         ],

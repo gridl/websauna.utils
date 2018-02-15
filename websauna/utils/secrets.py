@@ -24,15 +24,19 @@ def resolve(uri):
 
     parts = urlparse(uri)
 
-    assert parts.scheme in ("resource", "file"), "Only resource//: scheme supported, got {}".format(uri)
+    if parts.scheme not in ("resource", "file"):
+        raise ValueError("Only resource//: scheme supported, got {}".format(uri))
 
     if parts.scheme == "resource":
         package = parts.netloc
         args = package.split('.') + [parts.path.lstrip('/')]
         path = os.path.join(*args)
 
+        if package == "websauna":
+            package = "websauna.system"
         req = pkg_resources.Requirement.parse(package)
-        assert _resource_manager.resource_exists(req, path), "Could not find {}".format(uri)
+        if not _resource_manager.resource_exists(req, path):
+            raise ValueError("Could not find {}".format(uri))
 
         config_source = _resource_manager.resource_stream(req, path)
     else:
