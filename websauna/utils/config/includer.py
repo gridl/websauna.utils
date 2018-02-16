@@ -125,7 +125,7 @@ class IncludeAwareConfigParser(loadwsgi.NicerConfigParser):
                 try:
                     self.read_include(include, fpname)
                 except pkg_resources.DistributionNotFound as not_found_error:
-                    if '/websauna/' in include and not '/websauna/system/' in include:
+                    if '/websauna/' in include and '/websauna/system/' not in include:
                         include = include.replace('/websauna/', '/websauna.system/')
                         try:
                             self.read_include(include, fpname)
@@ -133,7 +133,6 @@ class IncludeAwareConfigParser(loadwsgi.NicerConfigParser):
                             raise not_found_error
                     else:
                         raise
-
 
     @classmethod
     def retrofit_settings(cls, global_config: dict, section: str='app:main') -> dict:
