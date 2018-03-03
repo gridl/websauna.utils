@@ -1,3 +1,5 @@
+websauna.utils is a component split from Websauna to resolve long standing
+issues with package namespace.
 
 .. |ci| image:: https://img.shields.io/travis/websauna/websauna.system/master.svg?style=flat-square
     :target: https://travis-ci.org/websauna/websauna.system/
@@ -24,9 +26,6 @@
 +-----------+-----------+-----------+
 
 .. image:: https://websauna.org/theme/images/logo-768.png
-
-websauna.utils is a component split from Websauna to resolve long standing
-issues with package namespace.
 
 It is automatically installed with the Websauna package, and can be used
 standalone, with minimal requirements.
